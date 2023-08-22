@@ -15,7 +15,7 @@ body{
   display: grid;
   place-content: center;
   height: 100vh;
-  padding:0 1.6rem;
+  padding:0 2rem;
 }
 main{
   background: #fff;
@@ -45,9 +45,7 @@ main{
   line-height: 1.8rem;
   margin-bottom: 0.8rem;
 }
-form{
-  width: 30rem;
-}
+
 .input-wrapper input{
   width:100%;
   border-radius: .4rem;
@@ -102,4 +100,9 @@ form{
 .screen1 button:hover{
   background: #035c78;
   
+}
+@media (min-width: 467px){
+  form{
+    width:30rem;
+  }
 }
