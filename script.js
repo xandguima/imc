@@ -4,26 +4,29 @@ const inputWeight= document.querySelector('#weight')
 const inputHeight=document.querySelector('#height')
 
 const alertError=document.querySelector('.alert-error')
-const modalWrapper=document.querySelector('.modal-wrapper')
-const modalwrapperH2=document.querySelector('.modal-wrapper h2')
-const modalBtnClose=document.querySelector('.modal-wrapper button.close')
-
 
 /*Funcions */
 function fail(){
   alertError.classList.add("open")
 }
+const Modal={
 
-function modal(a){
-  modalWrapper.classList.add("open")
-  alertError.classList.remove("open")
-  modalwrapperH2.innerText=`Seu IMC é de ${a}`
+  wrapper:document.querySelector('.modal-wrapper'),
+  messege:document.querySelector('.modal-wrapper h2'),
+  buttonClose:document.querySelector('.modal-wrapper button.close'),
+
+
+  open(a){
+    Modal.messege.innerText=`Seu IMC é de ${a}`
+    Modal.wrapper.classList.add("open")
+    alertError.classList.remove("open")
+  },
+  close:function(){
+    Modal.wrapper.classList.remove("open")
+    alertError.classList.remove("open")
+  }
 }
 
-function clickModal(){
-  modalWrapper.classList.remove("open")
-  alertError.classList.remove("open")
-}
 function imc(weight,height){
   const imc=weight/(height*height)
   const imcFix=imc.toFixed(1)
@@ -42,9 +45,9 @@ form.onsubmit = function(event){
     const imcCM=imc(weight,heightCM)
 
     if(height>100){
-      modal(imcCM)
+      Modal.open(imcCM)
     }else{
-      modal(imcM)
+      Modal.open(imcM)
     }
     
   }else{
@@ -54,8 +57,8 @@ form.onsubmit = function(event){
 
 }
 
-modalBtnClose.onclick= function(){
-  clickModal()
+Modal.buttonClose.onclick= function(){
+  Modal.close()
   inputHeight.value=""
   inputWeight.value=""
 }
