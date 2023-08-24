@@ -11,29 +11,32 @@ body{
   font-family: 'Roboto',sans-serif;
   
 }
+h1,h2{
+  font-size: 3.2rem;
+  font-weight: 700;
+}
 .container{
+  
   display: grid;
   place-content: center;
   height: 100vh;
   padding:0 2rem;
 }
-main{
+.card{
   background: #fff;
   padding:4.8rem 6.4rem 6.4rem;
- 
+
   max-width: 42.8rem;
-  
+  margin-inline: auto;
   border-radius: .6rem;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
 }
-.screen1 h1{
+.card h1{
   color: #0C3440;
-  font-size: 3.2rem;
-  font-weight: 700;
   line-height: 4rem;
   margin-bottom:3.2rem ;
 }
-.screen1 form{
+.card form{
   display: flex;
   flex-direction: column;
 }
@@ -57,7 +60,6 @@ main{
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2rem;
-  transform: scaleX(30px);
 }
 .input-wrapper + .input-wrapper{
   margin-top: 1.8rem;
@@ -68,11 +70,7 @@ main{
 .input-wrapper input::placeholder{
   color: #49505780;
 }
-form{
-  max-width: 30rem;
-}
-.screen1 button{
-  
+form button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,12 +95,76 @@ form{
   
 }
 
-.screen1 button:hover{
+form button:hover{
   background: #035c78;
   
 }
+/*Modal*/
+.modal-wrapper.open{
+  opacity: 1;
+  visibility: visible;
+}
+.modal-wrapper{
+  position: absolute;
+  inset: 0;
+  background:#000000B2;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal{
+  position: relative;
+}
+.modal button{
+  background:none;
+  border:none;
+
+  position: absolute;
+  top:1.6rem;
+  right:1.6rem;
+  cursor: pointer;
+  transition: transform .3s;
+}
+.modal button:hover{
+  transform: scale(1.1);
+}
+/*Alert bar*/
+.alert-error.open{
+  opacity: 1;
+  visibility: visible;
+  animation: slide-bar .7s;
+}
+.alert-error{
+  padding: .8rem 0;
+  text-align: center;
+  background: #F03E3E;
+  position: absolute;
+  top:0;
+  width: 100%;
+
+  font-family: 'Reboto',sans-serif;
+  color: #FFF;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2rem; 
+  
+  opacity: 0;
+  visibility: hidden;
+
+}
+@keyframes slide-bar {
+  from{
+    transform: translateY(-100%);
+  }
+  to{
+    transform: translateY(0%);
+  }
+
+}
+/*Responsiveness*/
 @media (min-width: 467px){
   form{
-    width:30rem;
+    width: 30rem;
   }
 }
