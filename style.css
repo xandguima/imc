@@ -133,7 +133,7 @@ form button:hover{
 .alert-error.open{
   opacity: 1;
   visibility: visible;
-  animation: slide-bar .7s;
+  animation: slide-bar-open .7s;
 }
 .alert-error{
   padding: .8rem 0;
@@ -151,9 +151,8 @@ form button:hover{
   
   opacity: 0;
   visibility: hidden;
-
 }
-@keyframes slide-bar {
+@keyframes slide-bar-open {
   from{
     transform: translateY(-100%);
   }
